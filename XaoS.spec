@@ -11,7 +11,7 @@ Summary(pl):	Szybki, przeno¶ny i interaktywny explorator fraktali
 Name:		XaoS
 Version:	3.1
 %define	pre	pre5
-Release:	0.%{pre}.2
+Release:	0.%{pre}.3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xaos/%{name}-%{version}%{pre}.tar.gz
@@ -88,7 +88,7 @@ makeinfo --no-split xaosdev.texinfo
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_infodir},%{_applnkdir},%{_pixmapsdir}} \
+install -d $RPM_BUILD_ROOT{%{_infodir},%{_desktopdir},%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/locale/{hu,es,fr,cs,de}/LC_MESSAGES
 
 %{__make} install \
@@ -98,7 +98,7 @@ install -d $RPM_BUILD_ROOT{%{_infodir},%{_applnkdir},%{_pixmapsdir}} \
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
 	LOCALEDIR=$RPM_BUILD_ROOT%{_datadir}/locale
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %find_lang xaos
@@ -130,4 +130,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man6/*
 %{_infodir}/*.info*
 %{_pixmapsdir}/XaoS.png
-%{_applnkdir}/XaoS.desktop
+%{_desktopdir}/XaoS.desktop
