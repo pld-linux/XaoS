@@ -12,11 +12,6 @@ Version:	3.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/Aplicações
-Group(pt):	X11/Aplicações
 URL:		http://limax.paru.cas.cz/~hubicka/XaoS/index.html
 Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/xapps/graphics/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
