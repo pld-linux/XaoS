@@ -3,8 +3,8 @@
 #
 %bcond_without	aalib	# without aalib output support
 %bcond_without	ggi	# without ggi output support
-%bcond_without	ncurses # without ncurses output support
-%bcond_without	svga 	# without svga output support
+%bcond_without	ncurses	# without ncurses output support
+%bcond_without	svga	# without svga output support
 #
 Summary:	A fast, portable real-time interactive fractal zoomer
 Summary(pl):	Szybki, przeno¶ny i interaktywny eksplorator fraktali
