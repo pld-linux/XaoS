@@ -1,13 +1,13 @@
 #
 # Conditional build:
 #
-# _without_aalib	- without aalib output support
-# _without_ggi		- without ggi output support
-# _without_ncurses 	- without ncurses output support
-# _without_svga 	- without svga output support
+%bcond_without	aalib	# without aalib output support
+%bcond_without	ggi	# without ggi output support
+%bcond_without	ncurses # without ncurses output support
+%bcond_without	svga 	# without svga output support
 #
 %ifnarch %{ix86} alpha
-%define _without_svga 1
+%undefine with_svga
 %endif
 Summary:	A fast, portable real-time interactive fractal zoomer
 Summary(pl):	Szybki, przeno¶ny i interaktywny explorator fraktali
@@ -28,13 +28,13 @@ Patch3:		%{name}-svga-fix.patch
 Patch4:		%{name}-info.patch
 URL:		http://xaos.theory.org/
 BuildRequires:	XFree86-devel
-%{!?_without_aalib:BuildRequires:		aalib-devel}
+%{?with_aalib:BuildRequires:		aalib-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake
-%{!?_without_ggi:BuildRequires:		libggi-devel}
+%{?with_ggi:BuildRequires:		libggi-devel}
 BuildRequires:	libpng-devel
-%{!?_without_ncurses:BuildRequires:	ncurses-devel}
-%{!?_without_svga:BuildRequires:	svgalib-devel}
+%{?with_ncurses:BuildRequires:	ncurses-devel}
+%{?with_svga:BuildRequires:	svgalib-devel}
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -77,10 +77,10 @@ cp -f /usr/share/automake/config.* .
 %configure \
 	--with-x \
 	--with-x11-driver=yes \
-	%{?_without_aalib:	--with-aa-driver=no} \
-	%{?_without_ggi:	--with-ggi-driver=no} \
-	%{?_without_ncurses:	--with-curses-driver=no} \
-	%{?_without_svga:	--with-svga-driver=no}
+	%{?with_aalib:	--with-aa-driver=no} \
+	%{?with_ggi:	--with-ggi-driver=no} \
+	%{?with_ncurses:--with-curses-driver=no} \
+	%{?with_svga:	--with-svga-driver=no}
 
 %{__make}
 
