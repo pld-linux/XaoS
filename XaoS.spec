@@ -36,7 +36,7 @@ BuildRequires:	libpng-devel
 %{!?_without_ncurses:BuildRequires:	ncurses-devel}
 %{!?_without_svga:BuildRequires:	svgalib-devel}
 BuildRequires:	texinfo
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 XaoS is a fast portable real-time interactive fractal zoomer. It
