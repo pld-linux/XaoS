@@ -36,3 +36,14 @@
      }
    return _to;
  }
+--- XaoS-3.1pre5/src/engine/fractal.c.orig	2001-05-27 21:07:35.000000000 +0200
++++ XaoS-3.1pre5/src/engine/fractal.c	2004-01-17 21:31:45.930744920 +0100
+@@ -413,7 +413,7 @@
+   free (c);
+ }
+ 
+-#ifdef NOASSEMBLY
++#if 1
+ #define rdtsc() 0
+ #define cli() 0
+ #define sti() 0
