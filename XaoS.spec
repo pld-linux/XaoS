@@ -18,6 +18,7 @@ Release:	0.%{pre}.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xaos/%{name}-%{version}%{pre}.tar.gz
+# Source0-md5:	904691517303d2bedddf33b3d68f97cc
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-nosuid.patch
