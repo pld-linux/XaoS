@@ -4,4 +4,5 @@ Comment=A fast, portable real-time interactive fractal zoomer
 Comment[pl]=Szybki, przenośny i interaktywny explorator fraktali
 Type=Application
 Exec=xaos
+Icon=XaoS.png
 # vi: encoding=utf-8
