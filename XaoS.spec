@@ -14,7 +14,7 @@ Summary(pl):	Szybki, przeno¶ny i interaktywny explorator fraktali
 Name:		XaoS
 Version:	3.1
 %define	pre	pre5
-Release:	0.%{pre}.1
+Release:	0.%{pre}.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xaos/%{name}-%{version}%{pre}.tar.gz
