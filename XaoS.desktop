@@ -1,4 +1,7 @@
 [Desktop Entry]
 Name=XaoS
+Comment=A fast, portable real-time interactive fractal zoomer
+Comment[pl]=Szybki, przenośny i interaktywny explorator fraktali
 Type=Application
 Exec=xaos
+# vi: encoding=utf-8
