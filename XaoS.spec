@@ -15,6 +15,7 @@ Group:		X11/Applications
 URL:		http://limax.paru.cas.cz/~hubicka/XaoS/index.html
 Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/xapps/graphics/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
+Source2:	%{name}.png
 Patch0:		%{name}-nosuid.patch
 Patch1:		%{name}-brokenasm.patch
 BuildRequires:	autoconf
@@ -48,9 +49,9 @@ pozwala na p³ynne powiêkszanie/pomniejszanie widocznego zakresu.
 Dostêpne s± ró¿ne rodzaje kolorowania dla punktów w wybranym zbiorze,
 jak i poza nim. Dodatkowo, mo¿liwe jest prze³±czanie miêdzy fraktalem
 Mandelbrota, a odpowiadaj±cym mu fraktalem Julii (i w drug± stronê).
-Pierwsza wersja (Tomasa) by³a kiepsko napisanym wy¶wietlaczem zbioru 
-Mandelbrota. Zosta³a zmodyfikowana przez Jana aby umo¿liwiaæ
-szybkie powiêkszanie. Inne zmiany, zrobione pó¼niej to autopilot, zmiana
+Pierwsza wersja (Tomasa) by³a kiepsko napisanym wy¶wietlaczem zbioru
+Mandelbrota. Zosta³a zmodyfikowana przez Jana aby umo¿liwiaæ szybkie
+powiêkszanie. Inne zmiany, zrobione pó¼niej to autopilot, zmiana
 palety, zapisywanie PNG i inwersja fraktali.
 
 %prep
@@ -66,7 +67,7 @@ palety, zapisywanie PNG i inwersja fraktali.
 	%{?_without_aa:		--with-aa-driver=no} \
 	%{?_without_ncurses:	--with-curses-driver=no} \
 	%{?_without_svga:	--with-svga-driver=no}
-	
+
 %{__make}
 
 %install
@@ -81,16 +82,18 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT%{_mandir}/man6
 install -d $RPM_BUILD_ROOT%{_infodir}
 install -d $RPM_BUILD_ROOT%{_applnkdir}
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 install bin/xaos $RPM_BUILD_ROOT%{_bindir}
 install tutorial/*.x[ah]f $RPM_BUILD_ROOT%{_datadir}/XaoS/tutorial
 install examples/* $RPM_BUILD_ROOT%{_datadir}/XaoS/examples
 install catalogs/* $RPM_BUILD_ROOT%{_datadir}/XaoS/catalogs
-install doc/README doc/README.bugs doc/compilers.txt doc/ANNOUNCE doc/PROBLEMS doc/tutorial.txt $RPM_BUILD_ROOT%{_datadir}/XaoS/doc
+install doc/{README,README.bugs,compilers.txt,ANNOUNCE,PROBLEMS,tutorial.txt} $RPM_BUILD_ROOT%{_datadir}/XaoS/doc
 install doc/xaos.6 $RPM_BUILD_ROOT%{_mandir}/man6
 install doc/xaos.info $RPM_BUILD_ROOT%{_infodir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}
-	
-gzip -9nf doc/README doc/README.bugs doc/compilers.txt doc/ANNOUNCE doc/PROBLEMS doc/tutorial.txt
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+
+gzip -9nf $RPM_BUILD_ROOT/%{_datadir}/%{name}/doc/{README,README.bugs,compilers.txt,ANNOUNCE,PROBLEMS,tutorial.txt}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -108,9 +111,11 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/XaoS/examples
 %dir %{_datadir}/XaoS/catalogs
 %attr(755,root,root) %{_bindir}/xaos
-%doc doc/*.gz
+%doc $RPM_BUILD_ROOT/%{_datadir}/%{name}/doc/*.gz
 %{_mandir}/man6/*
 %{_infodir}/*.info*
 %{_datadir}/XaoS/tutorial/*
 %{_datadir}/XaoS/examples/*
 %{_datadir}/XaoS/catalogs/*
+%{_pixmapsdir}/XaoS.png
+%{_applnkdir}/XaoS.desktop
