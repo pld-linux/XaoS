@@ -15,18 +15,18 @@ Version:	3.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-URL:		http://limax.paru.cas.cz/~hubicka/XaoS/index.html
-Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/xapps/graphics/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/xaos/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-nosuid.patch
 Patch1:		%{name}-brokenasm.patch
-BuildRequires:	autoconf
+URL:		http://xaos.theory.org/
 BuildRequires:	XFree86-devel
-BuildRequires:	libpng-devel
 %{!?_without_aa:BuildRequires:		aalib-devel}
-%{!?_without_svga:BuildRequires:	svgalib-devel}
+BuildRequires:	autoconf
+BuildRequires:	libpng-devel
 %{!?_without_ncurses:BuildRequires:	ncurses-devel}
+%{!?_without_svga:BuildRequires:	svgalib-devel}
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -90,13 +90,10 @@ install bin/xaos $RPM_BUILD_ROOT%{_bindir}
 install tutorial/*.x[ah]f $RPM_BUILD_ROOT%{_datadir}/XaoS/tutorial
 install examples/* $RPM_BUILD_ROOT%{_datadir}/XaoS/examples
 install catalogs/* $RPM_BUILD_ROOT%{_datadir}/XaoS/catalogs
-install doc/{README,README.bugs,compilers.txt,ANNOUNCE,PROBLEMS,tutorial.txt} $RPM_BUILD_ROOT%{_datadir}/XaoS/doc
 install doc/xaos.6 $RPM_BUILD_ROOT%{_mandir}/man6
 install doc/xaos.info $RPM_BUILD_ROOT%{_infodir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-
-gzip -9nf $RPM_BUILD_ROOT/%{_datadir}/%{name}/doc/{README,README.bugs,compilers.txt,ANNOUNCE,PROBLEMS,tutorial.txt}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -109,16 +106,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_datadir}/XaoS
-%dir %{_datadir}/XaoS/tutorial
-%dir %{_datadir}/XaoS/examples
-%dir %{_datadir}/XaoS/catalogs
+%doc doc/{README,README.bugs,compilers.txt,ANNOUNCE,PROBLEMS,tutorial.txt}
 %attr(755,root,root) %{_bindir}/xaos
-%doc $RPM_BUILD_ROOT/%{_datadir}/%{name}/doc/*.gz
 %{_mandir}/man6/*
 %{_infodir}/*.info*
-%{_datadir}/XaoS/tutorial/*
-%{_datadir}/XaoS/examples/*
-%{_datadir}/XaoS/catalogs/*
+%dir %{_datadir}/XaoS
+%{_datadir}/XaoS/tutorial
+%{_datadir}/XaoS/examples
+%{_datadir}/XaoS/catalogs
 %{_pixmapsdir}/XaoS.png
 %{_applnkdir}/XaoS.desktop
