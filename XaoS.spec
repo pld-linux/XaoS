@@ -7,7 +7,7 @@
 %bcond_without	svga 	# without svga output support
 #
 Summary:	A fast, portable real-time interactive fractal zoomer
-Summary(pl):	Szybki, przeno¶ny i interaktywny explorator fraktali
+Summary(pl):	Szybki, przeno¶ny i interaktywny eksplorator fraktali
 Name:		XaoS
 Version:	3.1
 %define	pre	pre5
@@ -48,7 +48,7 @@ were later made including autopilot (for those of you without drivers
 licenses), palette changing, PNG saving, and fractal inversion.
 
 %description -l pl
-XaoS jest szybkim, przeno¶nym i interaktywnym exploratorem fraktali.
+XaoS jest szybkim, przeno¶nym i interaktywnym eksploratorem fraktali.
 Efekty jego dzia³ania mo¿na ogl±daæ z u¿yciem drajwerów X11, aalib,
 ncurses oraz SVGAlib. XaoS wy¶wietla zbiór Mandelbrota (i nie tylko) i
 pozwala na p³ynne powiêkszanie/pomniejszanie widocznego zakresu.
