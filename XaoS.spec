@@ -1,11 +1,12 @@
 #
 # Conditional build:
 #
-# without_aa   		- without aalib output support
-# without_svga 		- without svga output support
-# without_ncurses 	- without ncurses output support
+# _without_aa   		- without aalib output support
+# _without_svga 		- without svga output support
+# _without_ncurses 		- without ncurses output support
 
 Summary:	A fast, portable real-time interactive fractal zoomer.
+Summary(pl):	Szybki, przeno¶ny i interaktywny expolorator fraktali
 Name:		XaoS
 Version:	3.0
 Release:	1
@@ -29,16 +30,29 @@ Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-XaoS is a fast portable real-time interactive fractal zoomer. and
-SVGAlib. It displays the Mandelbrot set (among other escape time
-fractals) and allows you zoom smoothly into the fractal. Various
-coloring modes are provided for both the points inside and outside the
-selected set. In addition, switching between Julia and Mandelbrot
-fractal types is provided. The first version was a poorly written
-Mandelbrot view by Thomas later modified by Jan to support high
-frame-rate zooming. Other additions were later made including
-autopilot (for those of you without drivers licenses), palette
-changing, PNG saving, and fractal inversion.
+XaoS is a fast portable real-time interactive fractal zoomer. It
+supports outputs such as X11, aalib, ncurses and SVGAlib. It displays
+the Mandelbrot set (among other escape time fractals) and allows you
+zoom smoothly into the fractal. Various coloring modes are provided
+for both the points inside and outside the selected set. In addition,
+switching between Julia and Mandelbrot fractal types is provided. The
+first version was a poorly written Mandelbrot view by Thomas later
+modified by Jan to support high frame-rate zooming. Other additions
+were later made including autopilot (for those of you without drivers
+licenses), palette changing, PNG saving, and fractal inversion.
+
+%description -l pl
+XaoS jest szybkim, przeno¶nym i interaktynym exproratorem fraktali.
+Efekty jego dzia³ania mo¿na ogl±daæ z u¿yciem driverów X11, aalib,
+ncurses oraz SVGAlib. XaoS wy¶wietla sbiór Mandelbrota (i nie tylko) i
+pozawala na p³ynne powiêkszanie/pomniejszanie widocznego zakresu.
+Dostêpne s± ró¿ne rodzaje kolorowania dla punktów w wybranym zbiorze,
+jak i poza nim. Dodatkowo, mo¿liwe jest prze³±czanie miêdzy fraktalem
+Mandelbrota, a odpowiadaj±cym mu fraktalem Julii (i w drug± stronê).
+Piwrwsza wersja (Tomasa) by³a kiepsko napisanym wy¶wietlaczem zbioru 
+Mandelbrota napisan±. Zodta³a modyfikowan przez Jana aby umo¿liwiaæ
+szybkie zoomowanie. Inne zmiany, zrobione pó¼niej to autopilot, zmiana
+palety, zapisywanie PNG i inwersja fraktali.
 
 %prep
 %setup -q
