@@ -1,0 +1,17 @@
+--- XaoS-3.1pre5/src/ui/ui-drv/ggi/ui_ggi.c.orig	Tue Feb  6 14:00:41 2001
++++ XaoS-3.1pre5/src/ui/ui-drv/ggi/ui_ggi.c	Fri Jan 24 21:20:17 2003
+@@ -1,4 +1,4 @@
+-#include "aconfig.h"
++#include "config.h"
+ #ifdef GGI_DRIVER
+ /*includes */
+ #include <sys/time.h>
+@@ -312,7 +312,7 @@
+ #ifdef GIIK_Delete
+ 	    case GIIK_Delete:
+ #endif
+-#ifdef GIIUC_Delete
++#if defined(GIIUC_Delete) && ((!defined(GIIK_Delete)) || (GIIUC_Delete != GIIK_Delete))
+ 	    case GIIUC_Delete:
+ #endif
+ 	    case GIIUC_BackSpace:

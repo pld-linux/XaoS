@@ -1,0 +1,58 @@
+--- XaoS-3.1pre5/src/ui/ui-drv/svga/ui_svga.c.orig	Thu May 31 19:07:17 2001
++++ XaoS-3.1pre5/src/ui/ui-drv/svga/ui_svga.c	Fri Jan 24 21:57:08 2003
+@@ -338,8 +338,6 @@
+     }
+ #endif
+   vga_setmode (mode);
+-  seteuid (getuid ());		/* Don't need supervisor rights anymore. */
+-  setegid (getgid ());
+   if (mode == G320x240x256
+       || mode == G320x400x256
+       || mode == G360x480x256)
+@@ -459,29 +457,6 @@
+   int i;
+   int fd;
+   struct stat chkbuf;
+-  seteuid (euid);		/* We need supervisor rights to open mouse. */
+-  setegid (egid);
+-  if ((fd = open ("/dev/console", O_RDONLY)) < 0)
+-    {
+-      seteuid (getuid ());	/* Don't need supervisor rights anymore. */
+-      setegid (getgid ());
+-      return (0);
+-    }
+-  close (fd);
+-  fstat (2, &chkbuf);
+-  if (chkbuf.st_rdev >> 8 != 4 || (chkbuf.st_rdev & 0xff) >= 64)
+-    {
+-      seteuid (getuid ());	/* Don't need supervisor rights anymore. */
+-      setegid (getgid ());
+-      return (0);
+-    }
+-  if ((fd = open ("/dev/mem", O_RDWR)) < 0)
+-    {
+-      seteuid (getuid ());	/* Don't need supervisor rights anymore. */
+-      setegid (getgid ());
+-      return (0);
+-    }
+-  close (fd);
+   if (!initialised)
+     {
+       vga_setmousesupport (1);
+@@ -494,14 +469,14 @@
+ 	info = vga_getmodeinfo (i);
+ 	if (info->colors != 256 && info->colors != 32768 && info->colors != 65536 && info->colors != 16777216)
+ 	  continue;
++	else
++	  break;
+       }
+   if (i == GLASTMODE + 1)
+     {
+       svga_uninitialise ();
+       return 0;
+     }
+-  seteuid (getuid ());		/* Don't need supervisor rights anymore. */
+-  setegid (getgid ());
+   return (1);
+ }
+ static void
