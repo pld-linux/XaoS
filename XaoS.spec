@@ -59,7 +59,7 @@ palety, zapisywanie PNG i inwersja fraktali.
 %patch1 -p1
 
 %build
-autoconf
+%{__autoconf}
 %configure \
 	--with-x \
 	--with-x11-driver=yes \
