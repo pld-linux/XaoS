@@ -1,0 +1,38 @@
+--- XaoS-3.0/src/engine/i386.c.brokenasm	Mon May 29 12:47:41 2000
++++ XaoS-3.0/src/engine/i386.c	Mon May 29 12:48:40 2000
+@@ -88,7 +88,7 @@
+ 			 "rep; stosb\n\t"
+ 			 :"=D" (to)
+ 			 :"D" (to), "a" (0), "c" (temp0)
+-			 :"cx");
++		       );
+     }
+   asm __volatile__ (
+ 		     "shrl $3, %0\n\t"
+@@ -123,7 +123,7 @@
+ 			 "112:"
+ 			 :"=D" (to)
+ 			 :"D" (to), "a" (0), "c" (bytes), "d" (bytes)
+-			 :"cx", "memory");
++			 :"memory");
+     }
+   return _to;
+ }
+@@ -148,7 +148,7 @@
+ 			     "rep; movsb\n\t"
+ 			     :"=D" (to), "=S" (from)
+ 			     :"D" (to), "S" (from), "c" (temp0)
+-			     :"cx");
++			   );
+ 	}
+       asm __volatile__ (
+ 			 "shrl $8, %0\n\t"
+@@ -207,7 +207,7 @@
+ 			 "112:"
+ 			 :"=D" (to), "=S" (from)
+ 			 :"D" (to), "S" (from), "c" (bytes), "d" (bytes)
+-			 :"cx", "memory");
++			 :"memory");
+     }
+   return _to;
+ }
