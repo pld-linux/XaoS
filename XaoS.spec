@@ -5,7 +5,7 @@
 # _without_svga 		- without svga output support
 # _without_ncurses 		- without ncurses output support
 
-Summary:	A fast, portable real-time interactive fractal zoomer.
+Summary:	A fast, portable real-time interactive fractal zoomer
 Summary(pl):	Szybki, przeno¶ny i interaktywny explorator fraktali
 Name:		XaoS
 Version:	3.0
@@ -19,6 +19,7 @@ Source0:	ftp://sunsite.unc.edu/pub/Linux/X11/xapps/graphics/%{name}-%{version}.t
 Source1:	%{name}.desktop
 Patch0:		%{name}-nosuid.patch
 Patch1:		%{name}-brokenasm.patch
+BuildRequires:	autoconf
 BuildRequires:	XFree86-devel
 BuildRequires:	libpng-devel
 %{!?_without_aa:BuildRequires:		aalib-devel}
@@ -93,14 +94,14 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}
 	
 gzip -9nf doc/README doc/README.bugs doc/compilers.txt doc/ANNOUNCE doc/PROBLEMS doc/tutorial.txt
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
