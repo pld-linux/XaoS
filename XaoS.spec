@@ -48,7 +48,7 @@ pozwala na p³ynne powiêkszanie/pomniejszanie widocznego zakresu.
 Dostêpne s± ró¿ne rodzaje kolorowania dla punktów w wybranym zbiorze,
 jak i poza nim. Dodatkowo, mo¿liwe jest prze³±czanie miêdzy fraktalem
 Mandelbrota, a odpowiadaj±cym mu fraktalem Julii (i w drug± stronê).
-Piwrwsza wersja (Tomasa) by³a kiepsko napisanym wy¶wietlaczem zbioru 
+Pierwsza wersja (Tomasa) by³a kiepsko napisanym wy¶wietlaczem zbioru 
 Mandelbrota. Zosta³a zmodyfikowana przez Jana aby umo¿liwiaæ
 szybkie powiêkszanie. Inne zmiany, zrobione pó¼niej to autopilot, zmiana
 palety, zapisywanie PNG i inwersja fraktali.
