@@ -74,6 +74,7 @@ palety, zapisywanie PNG i inwersja fraktali.
 %build
 cp -f /usr/share/automake/config.* .
 %{__autoconf}
+LDFLAGS="%{rpmldflags} -L/usr/X11R6/%{_lib}"
 %configure \
 	--with-x \
 	--with-x11-driver=yes \
