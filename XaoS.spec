@@ -6,9 +6,6 @@
 %bcond_without	ncurses # without ncurses output support
 %bcond_without	svga 	# without svga output support
 #
-%ifnarch %{ix86} alpha
-%undefine with_svga
-%endif
 Summary:	A fast, portable real-time interactive fractal zoomer
 Summary(pl):	Szybki, przeno¶ny i interaktywny explorator fraktali
 Name:		XaoS
