@@ -7,7 +7,7 @@
 # _without_svga 	- without svga output support
 #
 %ifnarch %{ix86} alpha
-%define _without_svgalib 1
+%define _without_svga 1
 %endif
 Summary:	A fast, portable real-time interactive fractal zoomer
 Summary(pl):	Szybki, przeno¶ny i interaktywny explorator fraktali
