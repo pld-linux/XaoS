@@ -1,7 +1,7 @@
 #
 # Conditional build:
 #
-# _without_aa   	- without aalib output support
+# _without_aalib	- without aalib output support
 # _without_ggi		- without ggi output support
 # _without_ncurses 	- without ncurses output support
 # _without_svga 	- without svga output support
@@ -28,7 +28,7 @@ Patch3:		%{name}-svga-fix.patch
 Patch4:		%{name}-info.patch
 URL:		http://xaos.theory.org/
 BuildRequires:	XFree86-devel
-%{!?_without_aa:BuildRequires:		aalib-devel}
+%{!?_without_aalib:BuildRequires:		aalib-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake
 %{!?_without_ggi:BuildRequires:		libggi-devel}
@@ -77,7 +77,7 @@ cp -f /usr/share/automake/config.* .
 %configure \
 	--with-x \
 	--with-x11-driver=yes \
-	%{?_without_aa:		--with-aa-driver=no} \
+	%{?_without_aalib:	--with-aa-driver=no} \
 	%{?_without_ggi:	--with-ggi-driver=no} \
 	%{?_without_ncurses:	--with-curses-driver=no} \
 	%{?_without_svga:	--with-svga-driver=no}
