@@ -6,4 +6,5 @@ Type=Application
 Exec=xaos
 Icon=XaoS.png
 Encoding=UTF-8
+Categories=Graphics;
 # vi: encoding=utf-8
