@@ -24,6 +24,7 @@ Patch0:		%{name}-nosuid.patch
 Patch1:		%{name}-brokenasm.patch
 Patch2:		%{name}-ggi-fix.patch
 Patch3:		%{name}-svga-fix.patch
+Patch4:		%{name}-info.patch
 URL:		http://xaos.theory.org/
 BuildRequires:	XFree86-devel
 %{!?_without_aa:BuildRequires:		aalib-devel}
@@ -33,6 +34,7 @@ BuildRequires:	automake
 BuildRequires:	libpng-devel
 %{!?_without_ncurses:BuildRequires:	ncurses-devel}
 %{!?_without_svga:BuildRequires:	svgalib-devel}
+BuildRequires:	texinfo
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,6 +68,7 @@ palety, zapisywanie PNG i inwersja fraktali.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
@@ -79,6 +82,10 @@ cp -f /usr/share/automake/config.* .
 	%{?_without_svga:	--with-svga-driver=no}
 
 %{__make}
+
+cd doc
+makeinfo --no-split xaos.texinfo
+makeinfo --no-split xaosdev.texinfo
 
 %install
 rm -rf $RPM_BUILD_ROOT

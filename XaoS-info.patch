@@ -1,0 +1,30 @@
+--- XaoS-3.1pre5/doc/xaos.texinfo.orig	Tue Feb  6 14:00:33 2001
++++ XaoS-3.1pre5/doc/xaos.texinfo	Tue Jan 28 23:40:17 2003
+@@ -10,9 +10,9 @@
+ 
+ @setfilename xaos.info
+ @settitle An fast realtime interactive fractal zoomer---user's manual
+-@dircategory Graphics
++@dircategory Graphics Utilities:
+ @direntry 
+- * XaoS: (xaos).               The fast realtime interactive fractal zoomer
++* XaoS: (xaos).				Fast realtime interactive fractal zoomer
+ @end direntry
+ 
+ 
+--- XaoS-3.1pre5/doc/xaosdev.texinfo.orig	Tue Feb  6 14:00:34 2001
++++ XaoS-3.1pre5/doc/xaosdev.texinfo	Tue Jan 28 23:41:53 2003
+@@ -7,10 +7,10 @@
+ 
+ @setfilename xaosdev.info
+ @settitle An fast real-time interactive fractal zoomer---hacker's guide
+-@dircategory Graphics
++@dircategory Graphics Utilities:
+ @direntry 
+- * XaoS: (xaosdev).               The fast real-time interactive fractal zoomer
+-                                  (developers documentation
++* XaoS: (xaosdev).			Fast real-time interactive fractal zoomer
++					(developer's documentation)
+ @end direntry
+ 
+ 
