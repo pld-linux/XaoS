@@ -1,0 +1,25 @@
+diff -Naur XaoS-3.0/configure new/configure
+--- XaoS-3.0/configure	Wed Mar  4 16:49:12 1998
++++ new/configure	Mon Aug 16 14:22:05 1999
+@@ -5522,7 +5522,7 @@
+ #define SVGA_DRIVER 1
+ EOF
+ 
+-  STICKY='chmod +s $(bindir)/xaos; chown root $(bindir)/xaos; chgrp root $(bindir)/xaos'
++  STICKY=''
+   DRIVERDIRS="$DRIVERDIRS ui/ui-drv/svga"
+   DRIVERLIBS="$DRIVERLIBS lib/libuisvga.a"
+   if test "x$ac_cv_func_pthread_sighandler" = xyes; then 
+
+diff -Naur XaoS-3.0/configure.in new/configure.in
+--- XaoS-3.0/configure.in	Wed Mar  4 16:49:12 1998
++++ new/configure.in	Mon Aug 16 14:15:24 1999
+@@ -647,7 +647,7 @@
+ if test "x$ac_cv_lib_vga_vga_hasmode$ac_cv_lib_vgagl_gl_write" = xyesyes; then
+   drivers=yes
+   AC_DEFINE(SVGA_DRIVER)
+-  STICKY='chmod +s $(bindir)/xaos; chown root $(bindir)/xaos; chgrp root $(bindir)/xaos'
++  STICKY=''
+   DRIVERDIRS="$DRIVERDIRS ui/ui-drv/svga"
+   DRIVERLIBS="$DRIVERLIBS lib/libuisvga.a"
+   if test "x$ac_cv_func_pthread_sighandler" = xyes; then 
