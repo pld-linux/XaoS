@@ -17,7 +17,7 @@ Version:	3.1
 Release:	0.%{pre}.1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/xaos/%{name}-%{version}%{pre}.tar.gz
+Source0:	http://dl.sourceforge.net/xaos/%{name}-%{version}%{pre}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-nosuid.patch
