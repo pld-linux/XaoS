@@ -28,6 +28,7 @@ BuildRequires:	XFree86-devel
 %{?with_aalib:BuildRequires:		aalib-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 %{?with_ggi:BuildRequires:		libggi-devel}
 BuildRequires:	libpng-devel
 %{?with_ncurses:BuildRequires:	ncurses-devel}
