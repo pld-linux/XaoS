@@ -1,6 +1,5 @@
 #
 # Conditional build:
-#
 %bcond_without	aalib	# without aalib output support
 %bcond_without	ggi	# without ggi output support
 %bcond_without	ncurses	# without ncurses output support
