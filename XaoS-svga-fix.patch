@@ -1,15 +1,15 @@
---- XaoS-3.1pre5/src/ui/ui-drv/svga/ui_svga.c.orig	Thu May 31 19:07:17 2001
-+++ XaoS-3.1pre5/src/ui/ui-drv/svga/ui_svga.c	Fri Jan 24 21:57:08 2003
-@@ -338,8 +338,6 @@
+--- XaoS/src/ui/ui-drv/svga/ui_svga.c.orig	2004-11-24 08:11:48.000000000 +0100
++++ XaoS/src/ui/ui-drv/svga/ui_svga.c	2006-10-19 20:15:22.801637000 +0200
+@@ -339,8 +339,6 @@
      }
  #endif
    vga_setmode (mode);
 -  seteuid (getuid ());		/* Don't need supervisor rights anymore. */
 -  setegid (getgid ());
-   if (mode == G320x240x256
-       || mode == G320x400x256
-       || mode == G360x480x256)
-@@ -459,29 +457,6 @@
+   if (mode == G320x240x256 || mode == G320x400x256 || mode == G360x480x256)
+     svga_driver.textheight = 8 * 4;
+   else
+@@ -458,29 +456,6 @@
    int i;
    int fd;
    struct stat chkbuf;
@@ -39,15 +39,7 @@
    if (!initialised)
      {
        vga_setmousesupport (1);
-@@ -494,14 +469,14 @@
- 	info = vga_getmodeinfo (i);
- 	if (info->colors != 256 && info->colors != 32768 && info->colors != 65536 && info->colors != 16777216)
- 	  continue;
-+	else
-+	  break;
-       }
-   if (i == GLASTMODE + 1)
-     {
+@@ -500,8 +475,6 @@
        svga_uninitialise ();
        return 0;
      }

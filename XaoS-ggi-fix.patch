@@ -1,12 +1,12 @@
---- XaoS-3.1pre5/src/ui/ui-drv/ggi/ui_ggi.c.orig	Tue Feb  6 14:00:41 2001
-+++ XaoS-3.1pre5/src/ui/ui-drv/ggi/ui_ggi.c	Fri Jan 24 21:20:17 2003
+--- XaoS/src/ui/ui-drv/ggi/ui_ggi.c.orig	2002-09-25 17:52:09.000000000 +0200
++++ XaoS/src/ui/ui-drv/ggi/ui_ggi.c	2006-10-19 21:11:26.283841500 +0200
 @@ -1,4 +1,4 @@
 -#include "aconfig.h"
 +#include "config.h"
  #ifdef GGI_DRIVER
  /*includes */
  #include <sys/time.h>
-@@ -312,7 +312,7 @@
+@@ -332,7 +332,7 @@
  #ifdef GIIK_Delete
  	    case GIIK_Delete:
  #endif
@@ -15,3 +15,12 @@
  	    case GIIUC_Delete:
  #endif
  	    case GIIUC_BackSpace:
+@@ -397,7 +397,7 @@
+   "32",
+   NULL
+ };
+-static CONST menudialog uih_resizedialog[] = {
++static menudialog uih_resizedialog[] = {
+   DIALOGINT ("X:", 0),
+   DIALOGINT ("Y:", 0),
+   DIALOGCHOICE ("Depth", names, 0),
