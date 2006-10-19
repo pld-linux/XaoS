@@ -8,24 +8,21 @@
 Summary:	A fast, portable real-time interactive fractal zoomer
 Summary(pl):	Szybki, przeno¶ny i interaktywny eksplorator fraktali
 Name:		XaoS
-Version:	3.1
-%define	pre	pre5
-Release:	0.%{pre}.3
+Version:	3.2.2
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/xaos/%{name}-%{version}%{pre}.tar.gz
-# Source0-md5:	904691517303d2bedddf33b3d68f97cc
+Source0:	http://dl.sourceforge.net/xaos/%{name}-%{version}.tar.gz
+# Source0-md5:	bd347d6be1ff7e4f7a81975d82c36921
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-nosuid.patch
-Patch1:		%{name}-brokenasm.patch
-Patch2:		%{name}-ggi-fix.patch
-Patch3:		%{name}-svga-fix.patch
-Patch4:		%{name}-info.patch
+Patch1:		%{name}-ggi-fix.patch
+Patch2:		%{name}-svga-fix.patch
+Patch3:		%{name}-info.patch
 URL:		http://xaos.theory.org/
-BuildRequires:	XFree86-devel
 %{?with_aalib:BuildRequires:		aalib-devel}
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 %{?with_ggi:BuildRequires:		libggi-devel}
@@ -33,6 +30,9 @@ BuildRequires:	libpng-devel
 %{?with_ncurses:BuildRequires:	ncurses-devel}
 %{?with_svga:BuildRequires:	svgalib-devel}
 BuildRequires:	texinfo
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXxf86dga-devel
+BuildRequires:	xorg-lib-libXxf86vm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,24 +61,26 @@ powiêkszanie. Inne zmiany, zrobione pó¼niej to autopilot, zmiana
 palety, zapisywanie PNG i inwersja fraktali.
 
 %prep
-%setup -q -n %{name}-%{version}%{pre}
+%setup -q -n %{name}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
+
+# workaround for gettext 0.15 compatibility
+touch src/i18n/POTFILES.in
 
 %build
 cp -f /usr/share/automake/config.* .
+%{__aclocal}
 %{__autoconf}
-LDFLAGS="%{rpmldflags} -L/usr/X11R6/%{_lib}"
 %configure \
 	--with-x \
 	--with-x11-driver=yes \
-	%{?with_aalib:	--with-aa-driver=no} \
-	%{?with_ggi:	--with-ggi-driver=no} \
-	%{?with_ncurses:--with-curses-driver=no} \
-	%{?with_svga:	--with-svga-driver=no}
+	%{!?with_aalib:--with-aa-driver=no} \
+	%{!?with_ggi:--with-ggi-driver=no} \
+	%{!?with_ncurses:--with-curses-driver=no} \
+	%{!?with_svga:--with-svga-driver=no}
 
 %{__make}
 
@@ -88,15 +90,10 @@ makeinfo --no-split xaosdev.texinfo
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_infodir},%{_desktopdir},%{_pixmapsdir}} \
-	$RPM_BUILD_ROOT%{_datadir}/locale/{hu,es,fr,cs,de}/LC_MESSAGES
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
-	datadir=$RPM_BUILD_ROOT%{_datadir} \
-	bindir=$RPM_BUILD_ROOT%{_bindir} \
-	mandir=$RPM_BUILD_ROOT%{_mandir} \
-	infodir=$RPM_BUILD_ROOT%{_infodir} \
-	LOCALEDIR=$RPM_BUILD_ROOT%{_datadir}/locale
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
@@ -114,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f xaos.lang
 %defattr(644,root,root,755)
-%doc TODO doc/{ANNOUNCE,AUTHORS,PROBLEMS,README{,.bugs,.ggi},SPONSORS}
+%doc RELEASE_NOTES TODO doc/{AUTHORS,PROBLEMS,README{,.bugs,.ggi},SPONSORS,built-in_formulas.txt}
 %attr(755,root,root) %{_bindir}/xaos
 %dir %{_datadir}/XaoS
 %dir %{_datadir}/XaoS/catalogs
