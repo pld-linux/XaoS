@@ -8,12 +8,12 @@
 Summary:	A fast, portable real-time interactive fractal zoomer
 Summary(pl):	Szybki, przeno¶ny i interaktywny eksplorator fraktali
 Name:		XaoS
-Version:	3.2.2
+Version:	3.2.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xaos/%{name}-%{version}.tar.gz
-# Source0-md5:	bd347d6be1ff7e4f7a81975d82c36921
+# Source0-md5:	f1d9a9f3d2097906754b8824ba925e64
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-nosuid.patch
@@ -61,7 +61,7 @@ powiêkszanie. Inne zmiany, zrobione pó¼niej to autopilot, zmiana
 palety, zapisywanie PNG i inwersja fraktali.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
