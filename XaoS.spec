@@ -6,7 +6,7 @@
 %bcond_without	svga	# without svga output support
 #
 Summary:	A fast, portable real-time interactive fractal zoomer
-Summary(pl.UTF-8):   Szybki, przenośny i interaktywny eksplorator fraktali
+Summary(pl.UTF-8):	Szybki, przenośny i interaktywny eksplorator fraktali
 Name:		XaoS
 Version:	3.2.3
 Release:	1
