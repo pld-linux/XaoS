@@ -6,7 +6,7 @@
 %bcond_without	svga	# without svga output support
 #
 Summary:	A fast, portable real-time interactive fractal zoomer
-Summary(pl):	Szybki, przeno¶ny i interaktywny eksplorator fraktali
+Summary(pl.UTF-8):   Szybki, przenoÅ›ny i interaktywny eksplorator fraktali
 Name:		XaoS
 Version:	3.2.3
 Release:	1
@@ -47,17 +47,17 @@ modified by Jan to support high frame-rate zooming. Other additions
 were later made including autopilot (for those of you without drivers
 licenses), palette changing, PNG saving, and fractal inversion.
 
-%description -l pl
-XaoS jest szybkim, przeno¶nym i interaktywnym eksploratorem fraktali.
-Efekty jego dzia³ania mo¿na ogl±daæ z u¿yciem drajwerów X11, aalib,
-ncurses oraz SVGAlib. XaoS wy¶wietla zbiór Mandelbrota (i nie tylko) i
-pozwala na p³ynne powiêkszanie/pomniejszanie widocznego zakresu.
-Dostêpne s± ró¿ne rodzaje kolorowania dla punktów w wybranym zbiorze,
-jak i poza nim. Dodatkowo, mo¿liwe jest prze³±czanie miêdzy fraktalem
-Mandelbrota, a odpowiadaj±cym mu fraktalem Julii (i w drug± stronê).
-Pierwsza wersja (Tomasa) by³a kiepsko napisanym wy¶wietlaczem zbioru
-Mandelbrota. Zosta³a zmodyfikowana przez Jana aby umo¿liwiaæ szybkie
-powiêkszanie. Inne zmiany, zrobione pó¼niej to autopilot, zmiana
+%description -l pl.UTF-8
+XaoS jest szybkim, przenoÅ›nym i interaktywnym eksploratorem fraktali.
+Efekty jego dziaÅ‚ania moÅ¼na oglÄ…daÄ‡ z uÅ¼yciem drajwerÃ³w X11, aalib,
+ncurses oraz SVGAlib. XaoS wyÅ›wietla zbiÃ³r Mandelbrota (i nie tylko) i
+pozwala na pÅ‚ynne powiÄ™kszanie/pomniejszanie widocznego zakresu.
+DostÄ™pne sÄ… rÃ³Å¼ne rodzaje kolorowania dla punktÃ³w w wybranym zbiorze,
+jak i poza nim. Dodatkowo, moÅ¼liwe jest przeÅ‚Ä…czanie miÄ™dzy fraktalem
+Mandelbrota, a odpowiadajÄ…cym mu fraktalem Julii (i w drugÄ… stronÄ™).
+Pierwsza wersja (Tomasa) byÅ‚a kiepsko napisanym wyÅ›wietlaczem zbioru
+Mandelbrota. ZostaÅ‚a zmodyfikowana przez Jana aby umoÅ¼liwiaÄ‡ szybkie
+powiÄ™kszanie. Inne zmiany, zrobione pÃ³Åºniej to autopilot, zmiana
 palety, zapisywanie PNG i inwersja fraktali.
 
 %prep
