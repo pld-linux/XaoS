@@ -1,3 +1,4 @@
+# TODO: enable GTK+ UI when it becomes stable
 #
 # Conditional build:
 %bcond_without	aalib	# without aalib output support
@@ -8,12 +9,12 @@
 Summary:	A fast, portable real-time interactive fractal zoomer
 Summary(pl.UTF-8):	Szybki, przenośny i interaktywny eksplorator fraktali
 Name:		XaoS
-Version:	3.2.3
+Version:	3.4
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/xaos/%{name}-%{version}.tar.gz
-# Source0-md5:	f1d9a9f3d2097906754b8824ba925e64
+# Source0-md5:	366fd8151e9642a0d9afce889912e388
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-nosuid.patch
@@ -103,10 +104,10 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p	/sbin/postshell
+%post	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p	/sbin/postshell
+%postun	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files -f xaos.lang
@@ -120,11 +121,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/XaoS/catalogs/english.cat
 %lang(es) %{_datadir}/XaoS/catalogs/espanhol.cat
 %lang(fr) %{_datadir}/XaoS/catalogs/francais.cat
+%lang(it) %{_datadir}/XaoS/catalogs/italiano.cat
 %lang(hu) %{_datadir}/XaoS/catalogs/magyar.cat
+%lang(ro) %{_datadir}/XaoS/catalogs/romanian.cat
 %{_datadir}/XaoS/examples
 %{_datadir}/XaoS/help
 %{_datadir}/XaoS/tutorial
-%{_mandir}/man6/*
-%{_infodir}/*.info*
+%{_mandir}/man6/xaos.6*
+%{_infodir}/xaos.info*
 %{_pixmapsdir}/XaoS.png
 %{_desktopdir}/XaoS.desktop
