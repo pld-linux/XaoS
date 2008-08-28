@@ -1,5 +1,5 @@
---- XaoS/doc/xaos.texinfo.orig	2006-07-09 10:56:57.000000000 +0200
-+++ XaoS/doc/xaos.texinfo	2006-10-19 20:16:35.698192750 +0200
+--- XaoS-3.4/doc/xaos.texinfo.orig	2008-06-02 01:13:29.000000000 +0200
++++ XaoS-3.4/doc/xaos.texinfo	2008-08-28 06:46:04.474120901 +0200
 @@ -11,9 +11,9 @@
  
  @setfilename xaos.info
@@ -7,13 +7,13 @@
 -@dircategory Graphics
 +@dircategory Graphics Utilities:
  @direntry 
-- * XaoS: (xaos).               A fast real-time interactive fractal zoomer
-+ * XaoS: (xaos).			A fast real-time interactive fractal zoomer
+-* XaoS: (xaos).               A fast real-time interactive fractal zoomer
++* XaoS: (xaos).				A fast real-time interactive fractal zoomer
  @end direntry
  
  
---- XaoS/doc/xaosdev.texinfo.orig	2005-02-05 13:23:28.000000000 +0100
-+++ XaoS/doc/xaosdev.texinfo	2006-10-19 20:17:13.488554500 +0200
+--- XaoS-3.4/doc/xaosdev.texinfo.orig	2008-04-17 09:13:32.000000000 +0200
++++ XaoS-3.4/doc/xaosdev.texinfo	2008-08-28 06:46:39.922120901 +0200
 @@ -7,10 +7,9 @@
  
  @setfilename xaosdev.info
@@ -21,9 +21,23 @@
 -@dircategory Graphics
 +@dircategory Graphics Utilities:
  @direntry 
-- * XaoS: (xaosdev).               The fast real-time interactive fractal zoomer
--                                  (developers documentation)
-+ * XaoS: (xaosdev).			The fast real-time interactive fractal zoomer (developers documentation)
+-* XaoS: (xaosdev).               The fast real-time interactive fractal zoomer
+-                                 (developers documentation)
++* XaoS: (xaosdev).			The fast real-time interactive fractal zoomer (developers documentation)
+ @end direntry
+ 
+ 
+--- XaoS-3.4/doc/xaos.geninfo.orig	2008-05-21 22:23:36.000000000 +0200
++++ XaoS-3.4/doc/xaos.geninfo	2008-08-28 06:47:34.410120901 +0200
+@@ -11,9 +11,9 @@
+ 
+ @setfilename xaos.info
+ @settitle An fast realtime interactive fractal zoomer --- user's manual
+-@dircategory Graphics
++@dircategory Graphics Utilities:
+ @direntry 
+-* XaoS: (xaos).               A fast real-time interactive fractal zoomer
++* XaoS: (xaos).				A fast real-time interactive fractal zoomer
  @end direntry
  
  
