@@ -25,7 +25,7 @@ URL:		http://xaos.theory.org/
 %{?with_aalib:BuildRequires:		aalib-devel}
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 %{?with_ggi:BuildRequires:		libggi-devel}
 BuildRequires:	libpng-devel
 %{?with_ncurses:BuildRequires:	ncurses-devel}
